@@ -1,0 +1,7 @@
+node_modules/
+bower_components/
+src/**/*.jpg
+src/**/*.jpeg
+src/**/*.gif
+src/**/*.png
+purecss-gallery/

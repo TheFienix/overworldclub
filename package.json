@@ -1,0 +1,78 @@
+{
+  "name": "overworld",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "gulp-dev": "gulp",
+    "gulp-build": "gulp build",
+    "metalsmith-build": "make build",
+    "metalsmith-images": "BUILD_IMAGES=true make build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheFienix/overworld.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TheFienix/overworld/issues"
+  },
+  "homepage": "https://github.com/TheFienix/overworld#readme",
+  "dependencies": {
+    "browser-sync": "^2.18.7",
+    "del": "^2.2.2",
+    "greensock": "^1.20.2",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^3.10.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-fingerprint": "^0.3.2",
+    "gulp-front-matter": "^1.3.0",
+    "gulp-metalsmith": "^1.1.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-postcss": "^6.3.0",
+    "gulp-rev": "^7.1.2",
+    "gulp-sourcemaps": "^2.4.1",
+    "gulpsmith": "^0.5.5",
+    "handlebars": "^4.0.6",
+    "lodash.assign": "^4.2.0",
+    "metalsmith": "^2.3.0",
+    "metalsmith-adaptive-images": "^1.1.0",
+    "metalsmith-assets": "^0.1.0",
+    "metalsmith-browser-sync": "^1.1.1",
+    "metalsmith-collections": "^0.9.0",
+    "metalsmith-convert": "^0.3.5",
+    "metalsmith-debug": "^1.1.0",
+    "metalsmith-drafts": "0.0.1",
+    "metalsmith-feed": "^0.2.0",
+    "metalsmith-html-minifier": "^2.2.0",
+    "metalsmith-if": "^0.1.1",
+    "metalsmith-imagemin": "^3.0.0",
+    "metalsmith-in-place": "^2.0.1",
+    "metalsmith-layouts": "^1.8.0",
+    "metalsmith-mapsite": "^1.0.4",
+    "metalsmith-markdown": "^0.2.1",
+    "metalsmith-permalinks": "^0.5.0",
+    "metalsmith-project-images": "^1.1.1",
+    "metalsmith-publish": "^0.1.5",
+    "metalsmith-sharp": "^2.1.1",
+    "metalsmith-word-count": "0.0.4",
+    "metalsmith-writemetadata": "^0.4.5",
+    "postcss": "^5.2.12",
+    "postcss-cssnext": "^2.9.0",
+    "precss": "^1.4.0",
+    "purecss": "^1.0.0",
+    "sharp": "^0.20.2"
+  },
+  "devDependencies": {
+    "babel-core": "^6.23.1",
+    "babel-loader": "^6.3.0",
+    "babel-preset-es2015": "^6.22.0",
+    "del": "^2.2.2",
+    "webpack": "^2.2.1"
+  }
+}

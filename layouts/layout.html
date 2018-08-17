@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="it" class="home">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ title }}</title>
+  <meta name="description" content="{{ description }}">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <meta property="og:title" content="{{title}}" />
+  <meta property="og:description" content="{{description}}" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="{{url}}" />
+  <meta property="og:image" content="{{url}}/{{ogImage}}" />
+  {{> styles }}
+
+</head>
+
+<body class="home">
+  <script src="/js/loader.js"></script>
+  <!-- LOADER -->
+  <div class="loader-body" id="loader">
+    {{> logosvg }}
+  </div>
+  <!-- LOADER END -->
+
+  {{> analytics }}
+
+  <div class="main">
+
+    {{> header }}
+
+    <div class="pages-container">
+      {{#each pages }}
+      {{#each this.imagesMap as |image imageKey|}}
+      <div class="page"  id="section{{../this.order}}" style="background-image: url('/{{../this.path.dir}}/images/{{../this.path.name}}-1280.jpg')">
+
+  
+        <div class="contents">
+          {{{../this.contents}}}
+        </div>
+
+
+      </div>
+      {{/each}}
+      {{/each}}
+    </div>
+  </div>
+
+{{> footer }}
+
+</body>
+</html>

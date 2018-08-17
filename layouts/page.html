@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="it" class="illustration">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ title }}</title>
+  <meta name="description" content="{{ description }}">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <meta property="og:title" content="{{title}}" />
+  <meta property="og:description" content="{{description}}" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="{{url}}/{{path.dir}}/{{path.name}}.html" />
+  {{#each this.imagesMap as |image imageKey|}}
+  <meta property="og:image" content="{{url}}/{{image.src}}" />
+  {{/each}}
+
+  {{> styles }}
+
+</head>
+
+<body class="illustration">
+
+  {{> analytics }}
+
+  <div class="main">
+    {{> header }}
+
+    <div class="image-container">
+
+      {{#each this.imagesMap as |image imageKey|}}
+      <div class="image">
+        <a href="/{{../this.path.dir}}/images/{{../this.path.name}}-1200.jpg">
+          <img
+          alt="{{../this.title}}"
+          title="{{../this.title}}"
+          srcset="{{image.srcset}}"
+          sizes="{{image.sizes}}"
+          >
+        </a>
+        <div class="contents">
+          {{{ ../contents }}}
+        </div>
+      </div>
+      {{/each}}
+
+
+    </div>
+  </div>
+</div>
+{{> footer }}
+</body>
+</html>
