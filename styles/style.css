@@ -60,7 +60,7 @@ a {
     height: var(--headerHeight) ;
     width: 100%;
     display: block;
-    z-index: 100;
+    z-index: 50;
     top: 0;
     position: fixed;
     background-color: var(--bgColor);

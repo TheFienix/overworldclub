@@ -36,6 +36,10 @@ autoprefixerConf = {
 }
 ;
 
+gulp.task('favicon', function(){
+  return gulp.src('./favicon/*')
+  .pipe(gulp.dest('docs/favicon'));
+});
 
 gulp.task('clean:css',function(){
   return del([
@@ -106,4 +110,4 @@ gulp.task('serve',function(){
 
 
 gulp.task('default',['serve']);
-gulp.task('build',['css:build','js:build']);
+gulp.task('build',['css:build','js:build','favicon']);
