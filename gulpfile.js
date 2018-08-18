@@ -3,7 +3,7 @@ assign          = require('lodash.assign'),
 browserSync     = require('browser-sync').create(),
 concat          = require('gulp-concat'),
 cleancss        = require('gulp-clean-css'),
-cssnext         = require('postcss-cssnext'),
+presetEnv         = require('postcss-preset-env'),
 del             = require('del'),
 gulp            = require('gulp'),
 gulpFrontMatter = require('gulp-front-matter'),
@@ -11,12 +11,13 @@ plumber         = require('gulp-plumber'),
 postcss         = require('gulp-postcss'),
 precss          = require('precss'),
 rev             = require('gulp-rev'),
-sourcemaps      = require('gulp-sourcemaps')
+sourcemaps      = require('gulp-sourcemaps'),
+autoprefixer    = require('gulp-autoprefixer')
 ;
 
 var env = process.env.GULP_ENV,
 cssPlugins = [
-  cssnext,
+  presetEnv,
   precss
 ],
 jsDeps = [
@@ -28,7 +29,12 @@ jsDeps = [
   './scripts/menu.js',
   './scripts/mail.js'
 ],
-cleanCssOptions = { compatibility: '*' };
+cleanCssOptions = { compatibility: '*' },
+autoprefixerConf = {
+  browsers: ['last 2 versions'],
+  cascade: false
+}
+;
 
 
 gulp.task('clean:css',function(){
@@ -46,6 +52,7 @@ gulp.task('css:loader',function(){
 gulp.task('css:build',['clean:css','css:loader'],function(){
   return gulp.src('./styles/*.css')
   .pipe(postcss(cssPlugins))
+  .pipe(autoprefixer(autoprefixerConf))
   .pipe(cleancss(cleanCssOptions))
   .pipe(gulp.dest('docs/css'));
 });
@@ -54,6 +61,7 @@ gulp.task('css:dev',['css:loader'],function () {
   return gulp.src('./styles/style.css')
   .pipe(sourcemaps.init())
   .pipe(postcss(cssPlugins))
+  .pipe(autoprefixer(autoprefixerConf))
   .pipe(sourcemaps.write('.'))
   .pipe(gulp.dest('docs/css'))
   .pipe(browserSync.stream());
