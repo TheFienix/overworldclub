@@ -45,6 +45,8 @@ gulp.task('clean:css',function(){
 
 gulp.task('css:loader',function(){
   return gulp.src(['./styles/loader.css'])
+  .pipe(postcss(cssPlugins))
+  .pipe(autoprefixer(autoprefixerConf))
   .pipe(cleancss(cleanCssOptions))
   .pipe(gulp.dest('docs/css'));
 });
