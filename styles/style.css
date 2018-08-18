@@ -126,7 +126,7 @@ p {
             line-height: .3em;
             color: color( var(--mainColor) lightness(90%) );
             margin-right: var(--globalMargin);
-            &:hover,&:active {
+            &:hover,&:active, &.active {
               color: color( var(--highlightColor));
               transition: color .3s ease;
               cursor: pointer;
@@ -137,14 +137,14 @@ p {
     }
   }
 
-  .pages-container {
+  .sections-container {
     clear: both;
     position: relative;
     margin: 0;
     box-sizing: border-box;
     width: 100%;
 
-    .page {
+    .section {
       position: relative;
       margin: 0;
       box-sizing: border-box;
@@ -170,7 +170,7 @@ p {
       @media (--viewport-large) {
         overflow: hidden;
       }
-      .page-title {
+      .section-title {
         position: relative;
         z-index: 10;
         @media (--viewport-large) {
@@ -185,7 +185,7 @@ p {
       }
 
       &:hover {
-        .page-title {
+        .section-title {
           transition: opacity .3s ease;
           opacity: 1;
         }
@@ -222,7 +222,7 @@ p {
   overflow-x: hidden;
   overflow-y: initial;
   position: relative;
-  .page-container {
+  .section-container {
     flex-direction: column;
     &:hover {
       cursor: pointer;

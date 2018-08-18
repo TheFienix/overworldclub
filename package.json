@@ -66,7 +66,8 @@
     "postcss-cssnext": "^2.9.0",
     "precss": "^1.4.0",
     "purecss": "^1.0.0",
-    "sharp": "^0.20.2"
+    "sharp": "^0.20.2",
+    "waypoints": "^4.0.1"
   },
   "devDependencies": {
     "babel-core": "^6.23.1",

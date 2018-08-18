@@ -29,12 +29,11 @@
 
     {{> header }}
 
-    <div class="pages-container">
-      {{#each pages }}
+    <div id="scrollContext" class="sections-container">
+      {{#each sections }}
       {{#each this.imagesMap as |image imageKey|}}
-      <div class="page"  id="section{{../this.order}}" style="background-image: url('/{{../this.path.dir}}/images/{{../this.path.name}}-1280.jpg')">
+      <div class="section"  id="section{{../this.order}}" style="background-image: url('/{{../this.path.dir}}/images/{{../this.path.name}}-1280.jpg')">
 
-  
         <div class="contents">
           {{{../this.contents}}}
         </div>

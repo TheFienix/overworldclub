@@ -8,13 +8,13 @@ var metalsmithConf = {
     facebook: "https://www.facebook.com/OverworldGG"
   },
   collections: {
-    pages: {
-      pattern: 'pages/**/*.md',
+    sections: {
+      pattern: 'sections/**/*.md',
       sortBy: 'order',
       reverse: false,
       metadata: {
-        name: 'Page',
-        description: 'website pages'
+        name: 'Section',
+        description: 'website sections'
       }
     }
   },

@@ -1125,13 +1125,13 @@ p {
   margin-right: 1.5vh
 }
 
-.main header .menu .menu-list .menu-item .menu-link:hover, .main header .menu .menu-list .menu-item .menu-link:active{
+.main header .menu .menu-list .menu-item .menu-link:hover, .main header .menu .menu-list .menu-item .menu-link:active, .main header .menu .menu-list .menu-item .menu-link.active{
   color: rgb(255, 102, 0);
   transition: color .3s ease;
   cursor: pointer;
 }
 
-.main .pages-container {
+.main .sections-container {
   clear: both;
   position: relative;
   margin: 0;
@@ -1139,7 +1139,7 @@ p {
   width: 100%;
 }
 
-.main .pages-container .page {
+.main .sections-container .section {
   position: relative;
   margin: 0;
   box-sizing: border-box;
@@ -1149,19 +1149,19 @@ p {
   height: 100vh;
 }
 
-.main .pages-container .page .page-title {
+.main .sections-container .section .section-title {
   position: relative;
   z-index: 10
 }
 
-.main .pages-container .page img {
+.main .sections-container .section img {
   width: 100%;
   min-width: 400px;
   height: auto;
   min-height: 400px;
 }
 
-.main .pages-container .page .contents {
+.main .sections-container .section .contents {
   display: block;
   z-index: 10;
   position: absolute;
@@ -1171,7 +1171,7 @@ p {
   left: 0;
 }
 
-.main .pages-container .page .contents p {
+.main .sections-container .section .contents p {
   vertical-align: middle;
   position: absolute;
   top: 50%;
@@ -1180,7 +1180,7 @@ p {
   text-align: center;
 }
 
-.main .pages-container .page:after{
+.main .sections-container .section:after{
   content: '';
   position: absolute;
   display: block;
@@ -1193,7 +1193,7 @@ p {
   z-index: 1;
 }
 
-.main .pages-container .page:hover .page-title{
+.main .sections-container .section:hover .section-title{
   transition: opacity .3s ease;
   opacity: 1;
 }
@@ -1205,28 +1205,28 @@ p {
     }
 
 @media (max-width: 35rem) {
-  .main .pages-container .page{
+  .main .sections-container .section{
     width: 100%;
   }
       }
 
 @media (min-width: 75.001rem) {
-  .main .pages-container .page{
+  .main .sections-container .section{
     overflow: hidden;
   }
       }
 
 @media (min-width: 75.001rem) {
-  .main .pages-container .page .page-title{
+  .main .sections-container .section .section-title{
 
 }
-  .main .pages-container .page .page-title:hover{
+  .main .sections-container .section .section-title:hover{
     color: rgb(255, 194, 153);
   }
         }
 
 @media (max-width: 75rem) {
-  .main .pages-container .page .page-title{
+  .main .sections-container .section .section-title{
 
 }
 
@@ -1239,12 +1239,12 @@ p {
   position: relative;
 }
 
-.illustration .page-container {
+.illustration .section-container {
   -ms-flex-direction: column;
   flex-direction: column;
 }
 
-.illustration .page-container .image {
+.illustration .section-container .image {
   width: 100%;
   height: auto;
   max-height: none;
@@ -1252,7 +1252,7 @@ p {
   margin:0 auto;
 }
 
-.illustration .page-container .image img {
+.illustration .section-container .image img {
   width: 100%;
   min-width: 0;
   min-width: initial;
@@ -1262,24 +1262,24 @@ p {
   pointer-events: initial;
 }
 
-.illustration .page-container .contents {
+.illustration .section-container .contents {
   width: 98vw;
   height: auto;
   padding: 0 0 0 .5em
 }
 
-.illustration .page-container:hover{
+.illustration .section-container:hover{
   cursor: pointer;
 }
 
 @media (min-width: 75.001rem) {
-  .illustration .page-container .image{
+  .illustration .section-container .image{
     max-width: 1200px;
   }
       }
 
 @media (min-width: 75.001rem) {
-  .illustration .page-container .contents{
+  .illustration .section-container .contents{
     padding: 0;
   }
       }
