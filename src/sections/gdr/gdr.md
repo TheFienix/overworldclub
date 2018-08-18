@@ -5,4 +5,6 @@ date: 2018-08-17
 order: 5
 ---
 
-Hai bisogno di un posto confortevole dove giocare con il tuo gruppo? Da noi sei il benvenuto. Se invece vorresti trovare amici con cui giocare o un master che orchestri le tue avventure passa a trovarci e troveremo una soluzione che fa per te.
+Hai bisogno di un posto confortevole dove giocare con il tuo gruppo?<br><br>
+Vorresti giocare ma non hai un master?<br><br>
+Da noi sei il benvenuto!
