@@ -237,7 +237,7 @@ a {
           @media (--viewport-medium) {
             font-size: .7em;
             a {
-              font-size: .7em;
+              font-size: .9em;
             }
           }
         }
@@ -251,7 +251,7 @@ a {
         padding: 2.5vh;
         z-index: 10;
         position: absolute;
-        bottom: 10vh;
+        bottom: 6em;
         left: 50%;
         margin-left: -3vh;
         &:hover {
