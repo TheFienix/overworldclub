@@ -17,7 +17,7 @@
 </head>
 
 <body class="home">
-    {{> logosvg }}
+  {{> logosvg }}
 
   <script src="/js/loader.js"></script>
   <!-- LOADER -->
@@ -36,21 +36,18 @@
       {{#each sections }}
       {{#each this.imagesMap as |image imageKey|}}
       <div class="section"  id="section{{../this.order}}" style="background-image: url('/{{../this.path.dir}}/images/{{../this.path.name}}-1280.jpg')">
-
-        <h2 class="section-title">{{../this.title}}</h2>
-
         <div class="contents">
+          <h2 class="section-title">{{../this.title}}</h2>
           {{{../this.contents}}}
         </div>
-
-
+        <i class="arrow down"></i>
       </div>
       {{/each}}
       {{/each}}
     </div>
   </div>
 
-{{> footer }}
+  {{> footer }}
 
 </body>
 </html>

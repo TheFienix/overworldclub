@@ -22,7 +22,7 @@
 }
 
 /* custom media queries */
-@custom-media --viewport-medium (width <= 1020px);
+@custom-media --viewport-medium (width <= 1235px);
 
 html {
   height: 100%;
@@ -37,9 +37,6 @@ body {
   height: 100%;
 }
 
-html,body {
-
-}
 
 p {
   margin:0;
@@ -51,6 +48,8 @@ a {
   font-weight: 700;
   text-decoration: none;
 }
+
+
 
 .main {
   height: 100vh;
@@ -65,46 +64,32 @@ a {
     position: fixed;
     background-color: var(--bgColor);
 
-
-    .title-bar {
-      height: 100%;
-      display: block;
-      overflow: hidden;
-      text-transform: uppercase;
-      background-color: var(--bgColor);
-      padding: 0;
-      box-sizing: content;
-
-      .logo {
-        display: inline-block;
-        float: left;
-        position: relative;
-        height: 2.7em;
-        width: 2.7em;
-      }
-
-      .title {
-        display: block;
-        font-size: calc(var(--fontSize) * 2);
-        line-height: calc(var(--fontSize) * 1.6);
-        white-space: nowrap;
-      }
-
-      .subtitle {
-        display: block;
-        color: var(--highlightColor);
-        font-size: calc(var(--fontSize) * 1.1);
-        line-height: calc(var(--fontSize) * 1);
-        padding-top: calc(var(--fontSize) * 0.2);
-        white-space: nowrap;
-      }
+    .brand {
+      position: relative;
+      float: left;
     }
+
+    .logotype {
+      width: auto;
+      height: 28px;
+      margin: 0.3em;
+      z-index: 150;
+    }
+
 
     .burger-button {
       position: fixed;
+      display: block;
       top: 0;
       right: 0;
       display: none;
+      background-color: var(--bgColor);
+      width: 3rem;
+      height: 2.5rem;
+      margin: .2rem .5rem;
+      &:hover {
+        cursor: pointer;
+      }
       @media (--viewport-medium) {
         display: block;
       }
@@ -116,7 +101,6 @@ a {
         border-radius: 100px;
         position: absolute;
         top: 1.3rem;
-        right: .5rem;
         transition: all 0.5s;
         &:nth-child(1) {
           transform: translateY(-.7rem);
@@ -160,6 +144,7 @@ a {
         }
       }
       .menu-list {
+        left: 2.7em;
         list-style: none;
         padding: 0;
         margin: 0;
@@ -222,90 +207,74 @@ a {
         z-index: 1;
       }
 
-
-      &:hover {
-        .section-title {
-          transition: opacity .3s ease;
-          opacity: 1;
-        }
-      }
-
-      img {
-        width: 100%;
-        min-width: 400px;
-        height: auto;
-        min-height: 400px;
-      }
-
       .section-title {
+        font-size: 2em;
         position: relative;
-        width: 100%;
-        text-align: center;
-        top: 10vh;
-        margin: 0;
         text-transform: uppercase;
+        margin: 0;
+        text-align: center;
         z-index: 10;
-        font-size: 7vh;
-        line-height: 7vh;
+        @media (--viewport-medium) {
+          font-size: 1.2em;
+        }
       }
 
       .contents {
         z-index: 10;
-        position: relative;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        width: 100%;
-        height: 98%;
-        margin: auto;
-        width: 95%;
+        position: relative;;
+        top: 1em;
+        padding: 0 .3em;
 
+        @media (--viewport-medium) {
+          top: .5em;
+        }
         p {
+          top: 1em;
+          position: relative;
           text-align: center;
-          font-size: 4vh;
-          line-height: 4vh;
-          margin-top: 12vh;
+          font-size: 1.2em;
+          line-height: 1.2em;
           @media (--viewport-medium) {
-            font-size: 6vw;
+            font-size: .7em;
             a {
-              font-size: 4vw;
+              font-size: .7em;
             }
           }
         }
+
       }
-    }
-  }
-}
 
-.illustration {
-  overflow-x: hidden;
-  overflow-y: initial;
-  position: relative;
-  .section-container {
-    flex-direction: column;
-    &:hover {
-      cursor: pointer;
-    }
-    .image {
-      width: 100%;
-      height: auto;
-      max-height: initial;
-      margin:0 auto;
-
-
-      img {
-        width: 100%;
-        min-width: initial;
-        min-height: initial;
-        height: auto;
-        pointer-events: initial;
+      i.arrow {
+        border: solid white;
+        border-width: 0 1vh 1vh 0;
+        display: inline-block;
+        padding: 2.5vh;
+        z-index: 10;
+        position: absolute;
+        bottom: 10vh;
+        left: 50%;
+        margin-left: -3vh;
+        &:hover {
+          cursor: pointer;
+        }
+        &.down {
+          transform: rotate(45deg);
+          -webkit-transform: rotate(45deg);
+        }
       }
-    }
-    .contents {
-      width: 98vw;
-      height: auto;
-      padding: 0 0 0 .5em;
+
+      &:first-child {
+        .contents {
+          top: 2em;
+        }
+      }
+
+      &:last-child {
+        i.arrow {
+          display: none;
+        }
+      }
+
     }
   }
 }
