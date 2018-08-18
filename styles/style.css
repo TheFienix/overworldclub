@@ -205,6 +205,9 @@ a {
       background-repeat: no-repeat;
       background-size: cover;
       height: 100vh;
+      @media (--viewport-medium) {
+        background-position: 50% 0;
+      }
       &:after {
         content: '';
         position: absolute;
@@ -226,7 +229,10 @@ a {
         text-transform: uppercase;
         margin: 0 auto;
         z-index: 10;
-
+        @media (--viewport-medium) {
+          font-size: 100%;
+          top: 10%;
+        }
       }
 
       &:hover {
@@ -253,17 +259,20 @@ a {
         height: 70%;
         margin: auto;
         display: table;
+        @media (--viewport-medium) {
+          width: 95%;
+        }
         p {
           text-align: center;
           font-size: 130%;
           line-height: 110%;
           display: table-cell;
           vertical-align: middle;
-          width: 70%;
+
           @media (--viewport-medium) {
-            font-size: 90%;
+            font-size: 5vw;
             a {
-              font-size: 70%;
+              font-size: 4vw;
             }
           }
         }
