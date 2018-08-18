@@ -1,0 +1,38 @@
+.custom-toggle {
+  position: fixed;
+  top: 0;
+  right: 0;
+  display: none;
+  @media (max-width: 1020px) {
+    display: block;
+  }
+  .bar {
+    background-color: #777;
+    display: block;
+    width: 3rem;
+    height: .2rem;
+    border-radius: 100px;
+    position: absolute;
+    top: 1.3rem;
+    right: .5rem;
+    transition: all 0.5s;
+    &:nth-child(1) {
+      transform: translateY(-.7rem);
+    }
+    &:nth-child(3) {
+      transform: translateY(.7rem);
+    }
+  }
+  &.x {
+    .bar:nth-child(1) {
+      transform: rotate(45deg);
+    }
+    .bar:nth-child(2) {
+      transform: rotate(-45deg);
+    }
+    .bar:nth-child(3) {
+      opacity: 0;
+      transition: opacity .3s ease;
+    }
+  }
+}

@@ -29,10 +29,12 @@
 
     {{> header }}
 
-    <div id="scrollContext" class="sections-container">
+    <div class="sections-container">
       {{#each sections }}
       {{#each this.imagesMap as |image imageKey|}}
       <div class="section"  id="section{{../this.order}}" style="background-image: url('/{{../this.path.dir}}/images/{{../this.path.name}}-1280.jpg')">
+
+        <h2 class="section-title">{{../this.title}}</h2>
 
         <div class="contents">
           {{{../this.contents}}}

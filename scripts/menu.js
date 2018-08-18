@@ -1,7 +1,10 @@
 var menuItems = document.querySelectorAll(".menu .menu-link"),
 sections = ["section1","section2","section3","section4","section5","section6"],
 waypoints = {},
-menuHeight = document.getElementById("menu").offsetHeight - 3;
+menuHeight = document.getElementById("menu").offsetHeight - 3,
+burgerButton = document.getElementById("burger-button"),
+menu = document.getElementById("menu")
+;
 
 
 function currentScrollPosition(){
@@ -12,10 +15,10 @@ function currentScrollPosition(){
 menuItems.forEach(function(el,i){
   el.onclick = function(event) {
     event.preventDefault();
+    toggleMenu();
     var sectionId = "section" + (i+1),
     targetSection = document.getElementById(sectionId);
     direction = targetSection.offsetTop < currentScrollPosition() ? 2 : 0;
-    console.log(menuHeight + direction);
     TweenMax.to(window, 1, {scrollTo:{y: "#"+sectionId, offsetY: menuHeight + direction },ease:Power3.easeInOut});
   };
 });
@@ -34,7 +37,7 @@ sections.forEach(function(el, i){
   waypoints[el] = new Waypoint({
     element: document.getElementById(el),
     offset: function() {
-      return i === 0 ? 0 : menuHeight + 1;
+      return i === 0 ? -10 : menuHeight + 1;
     },
     handler: function(direction){
       var element = this.element;
@@ -42,3 +45,12 @@ sections.forEach(function(el, i){
     }
   });
 });
+
+function toggleMenu(){
+  burgerButton.classList.toggle('x');
+  menu.classList.toggle('open');
+}
+
+burgerButton.onclick = function(event){
+  toggleMenu();
+};

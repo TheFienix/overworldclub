@@ -10,7 +10,6 @@
   --bgColor: #000000;
   --highlightColor: #FF6600;
   --headerHeight: 3rem;
-  --globalMargin: 1.5vh;
 }
 
 /* custom properties set & @apply rule */
@@ -23,9 +22,7 @@
 }
 
 /* custom media queries */
-@custom-media --viewport-small (width <= 35rem);
-@custom-media --viewport-medium (width <= 75rem);
-@custom-media --viewport-large (width > 75rem);
+@custom-media --viewport-medium (width <= 1020px);
 
 html {
   height: 100%;
@@ -65,11 +62,9 @@ a {
     display: block;
     z-index: 100;
     top: 0;
-    position: relative;
+    position: fixed;
+    background-color: var(--bgColor);
 
-    @media (--viewport-medium) {
-      position: relative;
-    }
 
     .title-bar {
       height: 100%;
@@ -83,18 +78,15 @@ a {
       .logo {
         display: inline-block;
         float: left;
-        padding: var(--globalMargin);
         position: relative;
         height: 2.7em;
         width: 2.7em;
-
       }
 
       .title {
         display: block;
         font-size: calc(var(--fontSize) * 2);
         line-height: calc(var(--fontSize) * 1.6);
-        padding-top: var(--globalMargin);
         white-space: nowrap;
       }
 
@@ -108,6 +100,45 @@ a {
       }
     }
 
+    .burger-button {
+      position: fixed;
+      top: 0;
+      right: 0;
+      display: none;
+      @media (--viewport-medium) {
+        display: block;
+      }
+      .bar {
+        background-color: #777;
+        display: block;
+        width: 3rem;
+        height: .2rem;
+        border-radius: 100px;
+        position: absolute;
+        top: 1.3rem;
+        right: .5rem;
+        transition: all 0.5s;
+        &:nth-child(1) {
+          transform: translateY(-.7rem);
+        }
+        &:nth-child(3) {
+          transform: translateY(.7rem);
+        }
+      }
+      &.x {
+        .bar:nth-child(1) {
+          transform: rotate(45deg);
+        }
+        .bar:nth-child(2) {
+          transform: rotate(-45deg);
+        }
+        .bar:nth-child(3) {
+          opacity: 0;
+          transition: opacity .3s ease;
+        }
+      }
+    }
+
     .menu {
       display: block;
       clear: both;
@@ -118,21 +149,32 @@ a {
       top: 0;
       text-align: center;
 
+      @media (--viewport-medium) {
+        opacity: 0;
+        transition: opacity .3s ease, visibility 0s ease .3s;
+        &.open {
+          opacity: 1;
+          visibility: visible;
+          transition: opacity .3s ease;
+        }
+      }
       .menu-list {
         list-style: none;
         padding: 0;
-        margin: 0 0 0 var(--globalMargin);
+        margin: 0;
+        background-color: var(--bgColor);
         .menu-item {
           display: inline-block;
-
+          margin-right: 1rem;
+          @media (--viewport-medium) {
+            display: block;
+          }
           .menu-link {
             text-transform: uppercase;
             text-decoration: none;
             font-size: .6em;
             font-weight: 700;
-
             color: color( var(--mainColor) lightness(90%) );
-            margin-right: var(--globalMargin);
             &:hover,&:active, &.active {
               color: color( var(--highlightColor) lightness(80%));
               transition: color .3s ease;
@@ -175,12 +217,7 @@ a {
         opacity: .6;
         z-index: 1;
       }
-      @media (--viewport-small) {
-        width: 100%;
-      }
-      @media (--viewport-large) {
-        overflow: hidden;
-      }
+
       .section-title {
         position: relative;
         width: 100%;
@@ -189,15 +226,7 @@ a {
         text-transform: uppercase;
         margin: 0 auto;
         z-index: 10;
-        @media (--viewport-large) {
-          &:hover {
-            color: color(var(--highlightColor) lightness(80%));
-          }
-        }
 
-        @media (--viewport-medium) {
-
-        }
       }
 
       &:hover {
@@ -231,6 +260,12 @@ a {
           display: table-cell;
           vertical-align: middle;
           width: 70%;
+          @media (--viewport-medium) {
+            font-size: 90%;
+            a {
+              font-size: 70%;
+            }
+          }
         }
       }
     }
@@ -251,9 +286,7 @@ a {
       height: auto;
       max-height: initial;
       margin:0 auto;
-      @media (--viewport-large) {
-        max-width: 1200px;
-      }
+
 
       img {
         width: 100%;
@@ -267,9 +300,6 @@ a {
       width: 98vw;
       height: auto;
       padding: 0 0 0 .5em;
-      @media (--viewport-large) {
-        padding: 0;
-      }
     }
   }
 }
