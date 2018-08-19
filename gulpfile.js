@@ -36,6 +36,11 @@ autoprefixerConf = {
 }
 ;
 
+gulp.task('og:image',function(){
+  return gulp.src('./img/OpenGraph-image.jpg')
+  .pipe(gulp.dest('docs/img'));
+});
+
 gulp.task('favicon', function(){
   return gulp.src('./favicon/*')
   .pipe(gulp.dest('docs/favicon'));
@@ -110,4 +115,4 @@ gulp.task('serve',function(){
 
 
 gulp.task('default',['serve']);
-gulp.task('build',['css:build','js:build','favicon']);
+gulp.task('build',['css:build','js:build','favicon','og:image']);

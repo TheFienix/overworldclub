@@ -4,7 +4,7 @@ var metalsmithConf = {
     description:    "Sito ufficiale dell'Overworld Club di Monterotondo",
     generator:      "Metalsmith",
     url:            "http://www.overworld.it",
-    ogImage:        "/",
+    ogImage:        "img/OpenGraph-image.jpg",
     facebook: "https://www.facebook.com/OverworldGG"
   },
   collections: {
