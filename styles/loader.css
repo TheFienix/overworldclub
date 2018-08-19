@@ -1,8 +1,8 @@
 /*LOADER*/
 
 .logo-wrapper {
-  height: 35vh;
-  width: 40vw;
+  height: 20vh;
+  width: 20vh;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -11,7 +11,7 @@
   opacity: 1;
   &.back {
     z-index: 10;
-    opacity: .3;
+    opacity: .6;
     transition: opacity .5s, z-index 0s linear .5s;
   }
 }

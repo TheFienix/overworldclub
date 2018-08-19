@@ -26,7 +26,7 @@ jsDeps = [
   './node_modules/greensock/dist/plugins/CSSPlugin.js',
   './node_modules/greensock/dist/plugins/ScrollToPlugin.js',
   './node_modules/waypoints/lib/noframework.waypoints.min.js',
-  './scripts/menu.js',
+  './scripts/scripts.js',
   './scripts/mail.js'
 ],
 cleanCssOptions = { compatibility: '*' },
