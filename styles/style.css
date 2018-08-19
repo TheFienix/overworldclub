@@ -22,6 +22,7 @@
 }
 
 /* custom media queries */
+@custom-media --viewport-large (width > 1235px);
 @custom-media --viewport-medium (width <= 1235px);
 
 html {
@@ -181,7 +182,7 @@ a {
     margin: 0;
     box-sizing: border-box;
     width: 100%;
-    text-shadow: 0 0 1em #d06bff, 0 0 1.2em #d06bff, 0 0 0.1em #f2d5ff;
+    text-shadow: 0 0 1em #d06bff, 0 0 1.2em #d06bff, 0 0 0.2em #f2d5ff;
 
     .section {
       position: relative;
@@ -190,6 +191,7 @@ a {
       position: relative;
       background-repeat: no-repeat;
       background-size: cover;
+      background-attachment: fixed;
       height: 100vh;
       @media (--viewport-medium) {
         background-position: 50% 0;
@@ -202,13 +204,14 @@ a {
         right: 0;
         bottom: 0;
         left: 0;
-        background-image: linear-gradient(to bottom right,#0e6ba3,#c617a4);
-        opacity: .6;
+        background-image: linear-gradient(to bottom,#c617a4,#2297dd);
+        opacity: .45;
         z-index: 1;
       }
 
       .section-title {
         font-size: 2em;
+        line-height: 1em;
         position: relative;
         text-transform: uppercase;
         margin: 0;
@@ -222,11 +225,17 @@ a {
       .contents {
         z-index: 10;
         position: relative;;
-        top: 1em;
+        top: 50%;
+        transform: translateY(-50%);
         padding: 0 .3em;
-
-        @media (--viewport-medium) {
-          top: .5em;
+        opacity: 0;
+        margin: 0 auto;
+        &.show {
+          opacity: 1;
+          transition: opacity .5s ease;
+        }
+        @media (--viewport-large) {
+          max-width: 70%;
         }
         p {
           top: 1em;
@@ -250,31 +259,21 @@ a {
         display: inline-block;
         padding: 2.5vh;
         z-index: 10;
-        position: absolute;
-        bottom: 6em;
+        position: relative;
         left: 50%;
-        margin-left: -3vh;
+
         &:hover {
           cursor: pointer;
         }
         &.down {
-          transform: rotate(45deg);
-          -webkit-transform: rotate(45deg);
+          transform: rotate(45deg) translateX(100%) translateY(172%);
         }
       }
-
-      &:first-child {
-        .contents {
-          top: 2em;
-        }
-      }
-
       &:last-child {
         i.arrow {
           display: none;
         }
       }
-
     }
   }
 }

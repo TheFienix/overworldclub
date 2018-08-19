@@ -1,5 +1,5 @@
 var menuItems = document.querySelectorAll(".menu .menu-link"),
-sections = ["section1","section2","section3","section4","section5","section6"],
+sections = document.querySelectorAll(".section"),
 waypoints = {},
 menuHeight = document.getElementById("menu").offsetHeight - 3,
 burgerButton = document.getElementById("burger-button"),
@@ -16,7 +16,15 @@ function currentScrollPosition(){
 function scrollToSection(sectionId){
   targetSection = document.getElementById(sectionId);
   direction = targetSection.offsetTop < currentScrollPosition() ? 2 : 0;
+  direction = sectionId === (sections[sections.length - 1].id) ? -menuHeight : direction;
   TweenMax.to(window, 1, {scrollTo:{y: "#"+sectionId, offsetY: menuHeight + direction },ease:Power3.easeInOut});
+}
+
+function showContent(element){
+  var content = element.querySelector('.contents');
+  if ( ! content.classList.contains('show')) {
+    content.classList.add('show');
+  }
 }
 
 menuItems.forEach(function(el,i){
@@ -35,18 +43,18 @@ function updateMenuClasses(section){
       item.classList.add('active');
     }
   });
-
 }
 
 sections.forEach(function(el, i){
-  waypoints[el] = new Waypoint({
-    element: document.getElementById(el),
+  waypoints[i] = new Waypoint({
+    element: el,
     offset: function() {
       return i === 0 ? -10 : menuHeight + 1;
     },
     handler: function(direction){
       var element = this.element;
       updateMenuClasses(element);
+      showContent(element);
     }
   });
 });
@@ -62,9 +70,8 @@ burgerButton.onclick = function(event){
 
 downArrows.forEach(function(el,i){
   el.onclick = function(event){
-    var parent = el.parentNode,
+    var parent = el.parentNode.parentNode,
     nextSectionId = "section" + (Number(parent.id.slice(7)) + 1);
-    console.log( el.parentNode);
     scrollToSection(nextSectionId);
   };
 });
