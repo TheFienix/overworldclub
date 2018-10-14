@@ -11,7 +11,6 @@
   opacity: 1;
   &.back {
     z-index: 10;
-    opacity: .6;
     transition: opacity .5s, z-index 0s linear .5s;
   }
 }
