@@ -100,7 +100,7 @@ function alignEmblem(element){
   var section = element || window.currentWaypoint,
   targetPosition = section.querySelector(".section-title").getBoundingClientRect(),
   emblemPosition = emblem.getBoundingClientRect(),
-  newTopPosition = targetPosition.y - (emblemPosition.height/1.8);
+  newTopPosition = targetPosition.y - (emblemPosition.height/1.5);
   TweenMax.to(emblem, 1, {top: newTopPosition, ease: Power3.easeInOut});
 }
 
